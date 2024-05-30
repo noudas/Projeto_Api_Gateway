@@ -5,7 +5,10 @@ FROM python:3.8-slim-buster
 WORKDIR /usr/src/app
 
 # Copy the current directory contents into the container at /usr/src/app
-COPY..
+COPY . .
+
+# Copy the SQLite database file into the container
+COPY api_gateway_projeto.db .
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
