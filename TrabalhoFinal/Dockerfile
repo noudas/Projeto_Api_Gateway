@@ -4,20 +4,17 @@ FROM python:3.8-slim-buster
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /usr/src/app
-COPY . .
-
-# Copy the SQLite database file into the container
-COPY api_gateway_projeto.db .
+# Copy requirements.txt in the folder you are, create a requirements.txt in you Work Dir - . = requirements.txt
+COPY requirements.txt . 
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
 
-# Define environment variable
-ENV NAME World
+# For documentation only, it shows taht the port 5000 is the one intended for the app.
+EXPOSE 5000
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]

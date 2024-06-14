@@ -74,7 +74,7 @@ def obter_cliente(id):
             if cliente:
                 return jsonify({'id': cliente[0], 'codigo': cliente[1], 'nome': cliente[2]}), 200
             else:
-                return jsonify({'message': 'Cliente não encontrado'}), 404
+                return jsonify({'message': 'Cliente não encontrado!'}), 404
     finally:
         conn.close()
 
@@ -137,4 +137,4 @@ def internal_server_error(error):
     return jsonify({'error': 'Erro interno do servidor'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
