@@ -29,16 +29,16 @@ Certifique-se de ter o Docker instalado em sua máquina.
     cd api-gateway-projeto
     ```
 
-3. Construa a imagem Docker:
+3. Rodar todos os serviços:
 
     ```bash
-    docker build -t api-gateway-projeto .
+    docker compose up
     ```
-
-4. Execute o contêiner Docker:
+    
+4. Depois do Kong Api Gateway for incializado:
 
     ```bash
-    docker run -p 5000:5000 api-gateway-projeto
+    ./kong-config.sh
     ```
 
 O servidor estará em execução em `http://127.0.0.1:5000/`.
